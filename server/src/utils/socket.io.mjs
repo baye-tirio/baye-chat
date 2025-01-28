@@ -1,8 +1,15 @@
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
+import cors from "cors";
 //normal express server
 const app = express();
+//some cors
+app.use(
+  cors({
+    origin: ["https://baye-chat.onrender.com", "http://localhost:5173"],
+  })
+);
 //normal http server aided by express
 const server = http.createServer(app);
 // socket.io server the one that's gon be emitting and listening to events

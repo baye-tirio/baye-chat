@@ -8,6 +8,7 @@ const app = express();
 app.use(
   cors({
     origin: ["https://baye-chat.onrender.com", "http://localhost:5173"],
+    credentials:true
   })
 );
 //normal http server aided by express
@@ -16,6 +17,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: ["https://baye-chat.onrender.com", "http://localhost:5173"],
+    credentials:true
   },
 });
 //This is basically used to store online users in userId:socketId format

@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 connect_db();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["https://baye-chat.onrender.com", "http://localhost:5173"],
     credentials: true,
   })
 );

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: client-deployment
+  labels:
+    app: bayeChat
+    type: front-end-deployment
+spec:
+  template: 
+    metadata: 
+      labels:
+        app: bayeChat
+        type: front-end-pod
+    spec:
+      containers:
+        - name: baye-chat-client-container
+          image: baye481/bayechatclient:v1.0
+          ports: 
+            - containerPort: 5173
+          env: 
+            - name: VITE_SERVER_DEVELOPMENT_URL
+              value: http://bayechat-test-server-service:5800
+
+  selector:
+    matchLabels:
+      app: bayeChat
+      type: front-end-pod
+  replicas: 1

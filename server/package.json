@@ -1,0 +1,31 @@
+{
+  "name": "baye-chat-server",
+  "version": "1.0.0",
+  "description": "This is the server for the BayeChat messaging application",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test-previous": "npx nodemon --env-file=.env ./src/index.mjs",
+    "test": "nodemon ./src/index.mjs",
+    "start": "PROJECT_ENVIRONMENT=production node ./src/index.mjs"
+  },
+  "author": "Baye Manga",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "cron": "^3.5.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.3.2",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: bayechat-mongo-db-service
+  labels:
+    app: bayeChat
+    type: mongo-db-service
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 27017
+      port: 27017
+      nodePort: 30002
+  selector: 
+    app: bayeChat
+    type: mongo-db-pod
+  

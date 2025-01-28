@@ -1,0 +1,10 @@
+# Defining the deployment of the database service
+services:
+  mongoDB: 
+    image: mongodb/mongodb-community-server
+    ports:
+      - 27020:27017
+    volumes:
+      - baye-chat-database:/data/db
+volumes:
+  baye-chat-database:

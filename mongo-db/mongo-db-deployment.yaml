@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mongo-db-deployment
+  labels:
+    app: bayeChat
+    type: mongo-db-deployment
+spec:
+  template: 
+    metadata: 
+      labels:
+        app: bayeChat
+        type: mongo-db-pod
+    spec:
+      containers:
+        - name: baye-chat-mongo-db-service
+          image: mongodb/mongodb-community-server
+          ports: 
+            - containerPort: 27017
+  selector:
+    matchLabels:
+      app: bayeChat
+      type: mongo-db-pod
+  replicas: 1

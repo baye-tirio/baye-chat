@@ -6,13 +6,10 @@ import { connect_db } from "./utils/db.mjs";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { app, server } from "./utils/socket.io.mjs";
-// To be on the safe side especially as i'm trying to deploy this in a kubernetes cluster
 import dotenv from "dotenv";
 import job from "./cron/cron.mjs";
 dotenv.config();
 const __dirname = path.resolve();
-//console.log({__dirname});
-//connect to the database
 connect_db();
 app.use(express.json({ limit: "100mb" }));
 //basically to transform the long cookie that exists in a form of a string into an object of cookies so that we can access that object to read the actual value of the cookie from the request object

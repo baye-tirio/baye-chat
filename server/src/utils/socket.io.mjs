@@ -8,7 +8,7 @@ const server = http.createServer(app);
 // socket.io server the one that's gon be emitting and listening to events
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://baye-chat.onrender.com"],
   },
 });
 //This is basically used to store online users in userId:socketId format

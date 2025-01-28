@@ -29,7 +29,7 @@ export const useAuthStore = create((setState, getState) => ({
       const res = await axiosInstance.get("/user/checkAuth");
       console.log("The authenticated user is : ");
       console.log(res.data);
-      setState({ authloading: false, authUser: res.data });
+      setState({ authloading: false, authUser: [] });
       getState().connectSocket();
     } catch (error) {
       setState({ authloading: false });

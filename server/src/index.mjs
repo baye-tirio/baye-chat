@@ -22,8 +22,13 @@ app.use("/api/message", MessageRoutes);
 //serving the html css and javascript associated with the frontend
 if (process.env.PROJECT_ENVIRONMENT === "production") {
   app.use(express.static(path.join(__dirname, "../client/dist")));
-  app.get("*", (_, res) => {
+  app.get("*", (req, res) => {
     //serving the entry point of the react application .. something like that
+    console.log(
+      "About to send the index.html file because nor route or static file matches the requested resource : "
+    );
+    console.log("Request url");
+    console.log(req.originalUrl);
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
   });
 }
@@ -36,6 +41,6 @@ app.use((err, req, res, next) => {
     message: errorMessage,
   });
 });
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, "0.0.0.0", () => {
   console.log("Listening on port:", process.env.PORT);
 });

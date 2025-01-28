@@ -16,6 +16,8 @@ export const useChatStore = create((setState, getState) => ({
     try {
       setState({ usersLoading: true, usersError: null });
       const response = await axiosInstance.get("/message/get-users");
+      console.log("The users are :");
+      console.log(response.data);
       setState({ users: response.data, usersLoading: false });
     } catch (error) {
       setState({

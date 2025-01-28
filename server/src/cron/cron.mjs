@@ -1,7 +1,7 @@
 import cron from "cron";
 import https from "https";
 
-const URL = "https://threads-application-au35.onrender.com";
+const URL = "https://baye-chat.onrender.com";
 
 const getRequest = () => {
   https

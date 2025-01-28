@@ -9,6 +9,7 @@ import path from "path";
 import { app, server } from "./utils/socket.io.mjs";
 // To be on the safe side especially as i'm trying to deploy this in a kubernetes cluster
 import dotenv from "dotenv";
+import job from "./cron/cron.mjs";
 dotenv.config();
 const __dirname = path.resolve();
 //console.log({__dirname});
@@ -39,6 +40,8 @@ app.use(cookieParser());
 // app.use(passport.initialize());
 // app.use(passport.session());
 //Our endpoints
+//schedule a cron job
+job.start();
 app.use("/api/user", UserRoutes);
 app.use("/api/authentication", AuthRoutes);
 app.use("/api/message", MessageRoutes);
